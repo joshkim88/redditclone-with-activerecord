@@ -32,12 +32,14 @@ ActiveRecord::Schema.define(version: 2020_03_06_213836) do
   end
 
   create_table "subreddits", force: :cascade do |t|
+    t.bigint "account_id"
     t.string "name"
     t.string "url"
     t.text "rules"
     t.integer "total_users"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_subreddits_on_account_id"
   end
 
 end
