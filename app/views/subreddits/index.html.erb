@@ -1,0 +1,16 @@
+<% if account_signed_in?  %>
+  <div class="float-right">
+    <%= link_to "create new subreddit", new_subreddit_path, class: "btn btn-outline-primary" %>
+  </div>
+<% end %>
+
+<% if @subreddits.size > 0 %>
+<%= @subreddits.each do |subreddit| %>
+  <div class="card">
+    <h3><%= link_to subreddit.name, subreddit %></h3>
+    <%= simple_format subreddit.bio %>
+  </div>
+<% end %>
+<% else %>
+  <p>No subreddits created.</p>
+<% end %>
