@@ -1,23 +1,4 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <p class="h5">Trending Today</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm3">
-      trending 1
-    </div>
-    <div class="col-sm3">
-      trending 2
-    </div>
-    <div class="col-sm3">
-      trending 3
-    </div>
-    <div class="col-sm3">
-      trending 4
-    </div>
-  </div>
   <div class="row mt-4">
     <div class="col">
       <p class="h5">Popular Posts</p>
@@ -35,10 +16,10 @@
     <div class="col-4">
       <p class="h5 mb-4">Popular Subreddits</p>
       <div class="card">
-        <ul class="list-group list-group-flush">
-          <%= @subreddits.each do |subreddit| %>
+        <ul class="list-group">
+          <% @subreddits.each do |subreddit| %>
             <li class="list-group-item"><%= link_to subreddit.name, subreddit_path(subreddit) %></li>
-          <% end  %>
+          <% end %>
         </ul>
       </div>
       <%= link_to "View all", subreddits_path, class: "btn btn-primary mt-3" %>
