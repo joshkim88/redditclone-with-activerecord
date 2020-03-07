@@ -4,13 +4,18 @@
   </div>
 <% end %>
 
-<% if @subreddits.size > 0 %>
-<%= @subreddits.each do |subreddit| %>
-  <div class="card">
-    <h3><%= link_to subreddit.name, subreddit %></h3>
-    <%= simple_format subreddit.rules %>
-  </div>
-<% end %>
-<% else %>
-  <p>No subreddits created.</p>
-<% end %>
+
+
+<div class="card">
+  <ul class="list-group">
+    <% if @subreddits.size > 0 %>
+      <% @subreddits.all.each do |subreddit| %>
+        <div class="card">
+          <h3><%= link_to subreddit.name, subreddit %></h3>
+          <%= simple_format subreddit.rules %>
+      <% end %>
+    <% else %>
+      <p>No subreddits created.</p>
+    <% end %>
+  </ul>
+</div>

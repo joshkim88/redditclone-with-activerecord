@@ -2,11 +2,15 @@
 
 <%= @subreddit.name %>
 
-<%= @posts.each do |post| %>
+<div class="card">
+  <% @posts.each do |post| %>
   <h4><%= link_to post.title, subreddit_post_path(@subreddit, post) %></h4>
   <p><%= truncate post.body, length: 200 %></p>
 <% end %>
+</div>
 
-<small>
-  <%= simple_format @subreddit.rules %>
-</small>
+<div class="card">
+  <ul class="list-group">
+    <%= simple_format @subreddit.rules %>
+  </ul>
+</div>
