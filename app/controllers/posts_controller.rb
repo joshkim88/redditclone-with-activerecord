@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
   before_action :authenticate_account!, except: [ :index, :show ]
-  before_action :set_subreddit, only: [:show]
+  before_action :set_post, only: [:show]
 
   def index
     @posts = Post.all
   end
 
   def show
-    @post = Post.find(params[subreddit_id])
+    @post = Post.find(params[:subreddit_id])
   end
 
   def new
