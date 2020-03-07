@@ -4,8 +4,4 @@ class HomeController < ApplicationController
     @posts = Post.all.limit(1000)
   end
 
-  def show
-    @post = Post.find{params[:post_id]}
-  end
-
 end
