@@ -8,7 +8,7 @@
 <%= @subreddits.each do |subreddit| %>
   <div class="card">
     <h3><%= link_to subreddit.name, subreddit %></h3>
-    <%= simple_format subreddit.bio %>
+    <%= simple_format subreddit.rules %>
   </div>
 <% end %>
 <% else %>

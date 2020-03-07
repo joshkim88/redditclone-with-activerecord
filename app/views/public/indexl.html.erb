@@ -18,15 +18,23 @@
       trending 4
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-4">
     <div class="col">
-      <p class="h4">Popular Posts</p>
+      <p class="h5">Popular Posts</p>
     </div>
     <div class="col-8">
       left col(wide)
-  </div>
+    </div>
     <div class="col-4">
-      <%= link_to "View all subreddits", subreddits_path, class: "btn btn-primary mt-3" %>
+      <p class="h5 mb-4">Popular Subreddits</p>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <%= @subreddits.each do |subreddit| %>
+            <li class="list-group-item"><%= link_to subreddit.name, subreddit_path(subreddit) %></li>
+          <% end  %>
+        </ul>
+      </div>
+      <%= link_to "View all", subreddits_path, class: "btn btn-primary mt-3" %>
     </div>
   </div>
 </div>
