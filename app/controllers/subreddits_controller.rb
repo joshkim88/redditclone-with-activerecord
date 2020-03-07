@@ -7,6 +7,7 @@ class SubredditsController < ApplicationController
   end
 
   def show
+    @posts = @subreddit.posts
   end
 
   def new
