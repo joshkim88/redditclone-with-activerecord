@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_account!, except: [ :index, :show ]
+  before_action :authenticate_account!, except: [ :index, :show, ]
   before_action :set_post, only: [:show]
 
   def index
@@ -26,6 +26,23 @@ class PostsController < ApplicationController
       @subreddit = Subreddit.find(params[:subreddit_id])
       render :new
     end
+    redirect_to post_path(@post)
+  end
+
+  def edit
+    @post = Post.find(params[:subreddit_id])
+  end
+
+  def update
+    @post = Post.find(params[:subreddit_id])
+    @post.update(params[:subreddit_id])
+    redirect_to post_path(@post)
+  end
+
+  def destroy
+    @post = Post.find(params[:subreddit_id])
+    @post.destroy
+    redirect_to post_path(@post)
   end
 
   private
