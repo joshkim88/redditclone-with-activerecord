@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:subreddit_id])
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -26,7 +26,6 @@ class PostsController < ApplicationController
       @subreddit = Subreddit.find(params[:subreddit_id])
       render :new
     end
-    redirect_to post_path(@post)
   end
 
   def edit
