@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:subreddit_id])
     @post.destroy
-    redirect_to post_path(@post)
+    redirect_to post_path
   end
 
   private
