@@ -3,9 +3,6 @@
   <h2><%= @post.title  %></h2>
   <p> <%= @post.body %></p>
   <p>
-    link to edit post
-  </p>
-  <p>
-    link to delete post
+    <%= link_to 'Edit', edit_post_path(post) %>
   </p>
 </div>
