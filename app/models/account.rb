@@ -5,4 +5,9 @@ class Account < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :subreddits
   has_many :posts
+
+  def full_name
+    "#{firs_name} #{last_name}"
+  end
+
 end
