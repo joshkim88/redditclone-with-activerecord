@@ -30,19 +30,19 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:subreddit_id])
+    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:subreddit_id])
-    @post.update(params[:subreddit_id])
+    @post = Post.find(params[:id])
+    @post.update(params[:id])
     redirect_to post_path(@post)
   end
 
   def destroy
-    @post = Post.find(params[:subreddit_id])
+    @post = Post.find(params[:id])
     @post.destroy
-    redirect_to post_path(@post)
+    redirect_to post_path
   end
 
   private
