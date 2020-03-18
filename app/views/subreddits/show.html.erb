@@ -1,16 +1,12 @@
-<%= link_to "Create New Post", new_subreddit_post_path(@subreddit), class: "btn btn-primary float-right" %>
-
-<%= @subreddit.name %>
-
-<div class="card">
-  <% @posts.each do |post| %>
-  <h4><%= link_to post.title, subreddit_post_path(@subreddit, post) %></h4>
-  <p><%= truncate post.body, length: 200 %></p>
-<% end %>
-</div>
-
-<div class="card">
-  <ul class="list-group">
-    <%= simple_format @subreddit.rules %>
-  </ul>
+<div>
+    <%= link_to "Create New Post", new_subreddit_post_path(@subreddit), class: "btn btn-primary" %>
+  <div>
+    <h1><%= @subreddit.name %></h1>
+    <% @posts.each do |post| %>
+      <h4><%= link_to post.title, subreddit_post_path(@subreddit, post) %></h4>
+      <p><%= post.body %></p>
+    <% end %>
+  <h4>Rules of this subreddit.</h4>
+    <ol><%= @subreddit.rules %></ol>
+  </div>
 </div>
