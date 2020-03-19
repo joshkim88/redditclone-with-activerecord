@@ -26,7 +26,6 @@ class PostsController < ApplicationController
       @subreddit = Subreddit.find(params[:subreddit_id])
       render :new
     end
-    redirect_to post_path(@post)
   end
 
   def edit
