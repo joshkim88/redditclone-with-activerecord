@@ -1,12 +1,9 @@
-<% if account_signed_in?  %>
-  <div class="float-right">
-    <%= link_to "create new subreddit", new_subreddit_path, class: "btn btn-outline-primary" %>
+<div>
+  <% if account_signed_in?  %>
+  <div>
+    <%= link_to "create new subreddit", new_subreddit_path, class: "btn btn-primary" %>
   </div>
-<% end %>
-
-
-
-<div class="card">
+  <div class="card">
   <ul class="list-group">
     <% if @subreddits.size > 0 %>
       <% @subreddits.all.each do |subreddit| %>
@@ -18,4 +15,8 @@
       <p>No subreddits created.</p>
     <% end %>
   </ul>
+</div>
+
+<% end %>
+
 </div>
