@@ -1,28 +1,28 @@
-<div class="container">
-  <div class="row mt-4">
-    <div class="col">
-      <p class="h5">Popular Posts</p>
-    </div>
+
+<div class="row mt-4">
+  <div class="col">
+    <p class="h5">Popular Posts</p>
   </div>
-    <div class="row">
-    <div class="col-8">
-        <% @posts.each do |post| %>
-        <div class="card p-3">
-          <h4><%= link_to post.title, subreddit_post_path(post.subreddit_id, post) %></h4>
-          <p><%= truncate post.body, length: 200 %></p>
-        </div>
-        <% end %>
+</div>
+  <div class="row">
+  <div class="col-8">
+      <% @posts.each do |post| %>
+      <div class="card p-3">
+        <p><small>Subreddit: <%= link_to post.subreddit.name %> Posted by <%= post.account.full_name %> <%= time_ago_in_words post.created_at %> ago.</small></p>
+        <h4><%= link_to post.title, subreddit_post_path(post.subreddit_id, post) %></h4>
+        <p><%= truncate post.body, length: 200 %></p>
       </div>
-    <div class="col-4">
-      <p class="h5 mb-4">Popular Subreddits</p>
-      <div class="card">
-        <ul class="list-group">
-          <% @subreddits.each do |subreddit| %>
-            <li class="list-group-item"><%= link_to subreddit.name, subreddit_path(subreddit) %></li>
-          <% end %>
-        </ul>
-      </div>
-      <%= link_to "View all", subreddits_path, class: "btn btn-primary mt-3" %>
+      <% end %>
     </div>
+  <div class="col-4">
+    <p class="h5 mb-4">Popular Subreddits</p>
+    <div class="card">
+      <ul class="list-group">
+        <% @subreddits.each do |subreddit| %>
+          <li class="list-group-item"><%= link_to subreddit.name, subreddit_path(subreddit) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <%= link_to "View all", subreddits_path, class: "btn btn-primary mt-3" %>
   </div>
 </div>
