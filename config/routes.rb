@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'home/index'
   devise_for :accounts
+  get "u/:username" => "public#profile", as: :profile
 
   resources :subreddits do
     resources :posts

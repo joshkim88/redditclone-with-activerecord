@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <%= render partial: "posts/list", locals: { posts: @posts } %>
+    </div>
+
+    <div class="col-sm-4">
+      <p class="h4"><%= @profile.full_name %></p>
+      <p>Username: <%= @profile.username %></p>
+      <p>Bio: Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      <p>Reddit Birthday: <%= @profile.created_at.strftime("%d/%m/%Y") %></p>
+    </div>
+
+  </div>
+</div>
