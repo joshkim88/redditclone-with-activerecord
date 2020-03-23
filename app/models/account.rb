@@ -6,10 +6,7 @@ class Account < ApplicationRecord
   has_many :subreddits
   has_many :posts
 
-  validates_presence_of :firs_name, :last_name, :username
-
   def full_name
     "#{firs_name} #{last_name}"
   end
-
 end
